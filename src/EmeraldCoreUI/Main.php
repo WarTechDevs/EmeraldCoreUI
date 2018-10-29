@@ -1,6 +1,6 @@
 <?php
 
-namespace EmeraldCoreUI/Main;
+namespace EmeraldCoreUI\Main;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\command\Command;
