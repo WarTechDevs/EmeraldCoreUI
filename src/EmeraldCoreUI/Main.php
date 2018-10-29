@@ -1,25 +1,23 @@
 <?php
-
-namespace EmeraldCoreUI\Main;
-
+namespace EmeraldCoreUI;
 use pocketmine\plugin\PluginBase;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\event\Listener;
-use jojoe77777\FormAPI;
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\utils\Config;
 use pocketmine\event\player\PlayerCommandPreprocessEvent;
 use pocketmine\event\server\ServerCommandEvent;
 use pocketmine\Player;
 use pocketmine\Server;
-use EmeraldCoreUI\Main;
+use jojoe77777\FormAPI;
 
 class EmeraldCoreUI extends PluginBase implements Listener{
     
     public function onEnable(){
         $this->getLogger()->info("§a[EmeraldCoreUI] §bBy §dEmeraldMC §aENABLED§7!");
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
+        }
     }
 
     public function checkDepends(){
