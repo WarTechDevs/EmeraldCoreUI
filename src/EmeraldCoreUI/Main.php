@@ -13,9 +13,9 @@ use pocketmine\event\player\PlayerCommandPreprocessEvent;
 use pocketmine\event\server\ServerCommandEvent;
 use pocketmine\Player;
 use pocketmine\Server;
-use RulesUI\Main;
+use EmeraldCoreUI\Main;
 
-class RulesUI extends PluginBase implements Listener{
+class EmeraldCoreUI extends PluginBase implements Listener{
     
     public function onEnable(){
         $this->getLogger()->info("§a[EmeraldCoreUI] §bBy §dEmeraldMC §aENABLED§7!");
