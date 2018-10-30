@@ -4,7 +4,6 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\event\Listener;
-use jojoe77777\FormAPI;
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\utils\Config;
 use pocketmine\event\player\PlayerCommandPreprocessEvent;
@@ -16,15 +15,20 @@ use jojoe77777\FormAPI;
 class EmeraldCoreUI extends PluginBase implements Listener{
     
     public function onEnable(){
-        $this->getLogger()->info("§a[EmeraldCoreUI] §bBy §dEmeraldMC §aENABLED§7!");
+        $this->getLogger()->info("EmeraldCoreUI Enabled");
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         }
     }
 
+    public function onDisable(){
+        $this->getLogger()->info("EmeraldCoreUI Disabled");
+    }
+}
+
     public function checkDepends(){
         $this->formapi = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
         if(is_null($this->formapi)){
-            $this->getLogger()->error("§a[EmeraldCoreUI]§c Requires §eFormAPI§c to run properly!");
+            $this->getLogger()->error("EmeraldCoreUI Requires FormAPI By JoeJoe77777 To Work");
             $this->getPluginLoader()->disablePlugin($this);
         }
     }
@@ -32,7 +36,7 @@ class EmeraldCoreUI extends PluginBase implements Listener{
     public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args):bool{
         if($cmd->getName() == "ecore"){
         if(!($sender instanceof Player)){
-                $sender->sendMessage("§cPlease use this command from In-game!", false);
+                $sender->sendMessage("Please Use This Command From In-Game", false);
                 return true;
         }
         $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
@@ -42,7 +46,7 @@ class EmeraldCoreUI extends PluginBase implements Listener{
             }
             switch ($result) {
                     case 0:
-                    $sender->sendMessage("§a[EmeraldCoreUI] §cExiting Menu§7!");
+                    $sender->sendMessage("EmeraldCoreUI Exiting Menu");
                         break;
                     case 1:
                     $this->getServer()->getCommandMap()->dispatch($player, "help");
@@ -99,9 +103,5 @@ class EmeraldCoreUI extends PluginBase implements Listener{
         $form->sendToPlayer($sender);
         }
         return true;
-    }
-
-    public function onDisable(){
-        $this->getLogger()->info("§a[EmeraldCoreUI] §dDisabled§7!");
     }
 }
